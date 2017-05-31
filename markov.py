@@ -71,14 +71,18 @@ def make_chains(text_string):
         else:
             chain_dict[current_key] = values
 
-    print chain_dict 
+    return chain_dict
 
 
 def make_text(chains):
     """Returns text from chains."""
 
+    our_string = choice(chains.keys())
+    our_word = chains[our_string]
     words = []
 
+    print our_string
+    print our_word
     # your code goes here
 
     return " ".join(words)
