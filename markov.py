@@ -71,19 +71,23 @@ def make_chains(text_string):
         else:
             chain_dict[current_key] = values
 
+    
     return chain_dict
 
 
 def make_text(chains):
     """Returns text from chains."""
 
-    our_string = choice(chains.keys())
-    our_word = chains[our_string]
     words = []
 
-    print our_string
-    print our_word
-    # your code goes here
+    current_key = choice(chains.keys())
+    words.extend(current_key)
+
+    while chains.get(current_key,None):
+        new_key = (current_key[1],choice(chains[current_key]))
+        words.append(new_key[1])
+        current_key = new_key
+
 
     return " ".join(words)
 
@@ -99,4 +103,4 @@ chains = make_chains(input_text)
 # Produce random text
 random_text = make_text(chains)
 
-#print random_text
+print random_text
